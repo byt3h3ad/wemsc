@@ -58,25 +58,33 @@ export const Sidebar = () => {
     [path]
   );
   return (
-    <section className="md:grid hidden w-[240px] py-4 px-4 h-full">
-      <div className="flex justify-between mb-6">
-        <Icon icon="ph:android-logo-fill" width="2rem" height="2rem" />
-        <Icon icon="mdi:hamburger-open" width="2rem" height="2rem" />
-      </div>
+    <section className="md:flex flex-col justify-between hidden w-[20vw] py-4 px-4 min-h-screen">
       <div>
-        <p className="uppercase text-xs font-thin">features</p>
-        {featuresLinks.map((link, index) => (
-          <NavLink key={index} {...link} />
-        ))}
+        <div className="flex justify-between mb-6">
+          <Icon icon="ph:android-logo-fill" width="2rem" height="2rem" />
+          <Icon icon="mdi:hamburger-open" width="2rem" height="2rem" />
+        </div>
+        <div>
+          <p className="uppercase text-xs font-thin">features</p>
+          {featuresLinks.map((link, index) => (
+            <NavLink key={index} {...link} />
+          ))}
+        </div>
+        <div>
+          <p className="uppercase text-xs font-thin">library</p>
+          {libraryLinks.map((link, index) => (
+            <NavLink key={index} {...link} />
+          ))}
+        </div>
       </div>
-      <div>
-        <p className="uppercase text-xs font-thin">library</p>
-        {libraryLinks.map((link, index) => (
-          <NavLink key={index} {...link} />
-        ))}
-      </div>
-      <div className="bottom-0 absolute">
-        <Image src="" alt="album cover" />
+      <div className="bottom-0">
+        <Image
+          src="https://picsum.photos/300"
+          alt="album cover"
+          width={240}
+          height={240}
+          className="m-0"
+        />
       </div>
     </section>
   );

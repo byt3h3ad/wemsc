@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className + " flex justify-between"}>
-      <Sidebar />
-      {children}
-      <Rightbar />
+        <Sidebar />
+        {children}
+        <Rightbar />
       </body>
     </html>
   );
