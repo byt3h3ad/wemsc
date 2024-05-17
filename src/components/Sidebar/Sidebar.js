@@ -31,7 +31,7 @@ export const Sidebar = () => {
         icon: "material-symbols-light:library-music-outline-rounded",
       },
     ],
-    [path]
+    [path],
   );
 
   const libraryLinks = useMemo(
@@ -55,10 +55,10 @@ export const Sidebar = () => {
         icon: "solar:folder-outline",
       },
     ],
-    [path]
+    [path],
   );
   return (
-    <section className="md:flex flex-col justify-between hidden w-[20vw] py-4 px-4 min-h-screen">
+    <section className="md:flex flex-col justify-between hidden w-[20vw] py-4 px-4 h-screen overflow-hidden">
       <div>
         <div className="flex justify-between mb-6">
           <Icon icon="ph:android-logo-fill" width="2rem" height="2rem" />
@@ -76,15 +76,6 @@ export const Sidebar = () => {
             <NavLink key={index} {...link} />
           ))}
         </div>
-      </div>
-      <div className="bottom-0">
-        <Image
-          src="https://picsum.photos/300"
-          alt="album cover"
-          width={240}
-          height={240}
-          className="m-0"
-        />
       </div>
     </section>
   );
