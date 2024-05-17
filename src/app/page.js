@@ -1,12 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { Icon } from "@iconify/react";
 import { AlbumCard } from "@/components/Album/AlbumCard";
 import Link from "next/link";
-import { Input } from "@/components/Input";
+import { Banner } from "@/components/Banner";
+import { Header } from "@/components/Header";
 
 export default function Home() {
-  const router = useRouter();
   const playlists = [
     {
       name: "Chill Vibes",
@@ -31,29 +29,8 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-zinc-900 w-full h-full px-4 py-2">
-      <div className="w-full my-2 flex items-center justify-between gap-x-4">
-        <div className="flex items-center gap-x-2 mx-2">
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="p-2 hover:opacity-60 transition"
-          >
-            <Icon icon="iconamoon:arrow-left-2-light" fontSize={"2rem"} />
-          </button>
-          <button
-            type="button"
-            onClick={() => router.forward()}
-            className="p-2 hover:opacity-60 transition"
-          >
-            <Icon icon="iconamoon:arrow-right-2-light" fontSize={"2rem"} />
-          </button>
-        </div>
-        <Input placeholder={"Search for artists, songs or playlists"} />
-        <button className="mx-4 text-4xl">
-          <Icon icon="lets-icons:meatballs-menu" />
-        </button>
-      </div>
+    <>
+      <Banner />
       <div className="flex justify-between items-center mx-6 my-2">
         <h1 className="text-2xl font-semibold">Hello, Woilon</h1>
         <Link href={""} className="hover:underline underline-offset-2 text-sm">
@@ -66,8 +43,7 @@ export default function Home() {
             key={index}
             name={playlist.name}
             description={playlist.description}
-            to={playlist.link}
-          />
+            to={playlist.link} />
         ))}
       </div>
       <div className="flex justify-between items-center mx-6 my-2">
@@ -82,10 +58,9 @@ export default function Home() {
             key={index}
             name={playlist.name}
             description={playlist.description}
-            to={playlist.link}
-          />
+            to={playlist.link} />
         ))}
       </div>
-    </main>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import "./globals.css";
 import { Sidebar } from "@/components/Sidebar/Sidebar";
 import { Rightbar } from "@/components/Rightbar/Rightbar";
 import { Player } from "@/components/Player";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <main className="flex justify-between">
           <Sidebar />
-          {children}
+          <section className="bg-zinc-900 w-full h-full px-4 py-3 mb-28">
+            <Header />
+            {children}
+          </section>
           <Rightbar />
         </main>
         <Player />

@@ -58,7 +58,7 @@ export const Sidebar = () => {
     [path],
   );
   return (
-    <section className="md:flex flex-col justify-between hidden w-[20vw] py-4 px-4 h-screen overflow-hidden">
+    <section className="lg:flex flex-col justify-between hidden w-[20vw] py-4 px-4 h-screen overflow-hidden">
       <div>
         <div className="flex justify-between mb-6">
           <Icon icon="ph:android-logo-fill" width="2rem" height="2rem" />

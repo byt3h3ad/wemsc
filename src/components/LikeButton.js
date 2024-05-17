@@ -11,7 +11,7 @@ export const LikeButton = ({ inactive, active }) => {
         icon={HeartIcon}
         onClick={() => setIsLiked(!isLiked)}
         className={
-          isLiked ? "text-green-500" : "text-neutral-400" + " hover:opacity-90"
+          isLiked ? "text-green-500" : "text-neutral-400" + " hover:opacity-90 hidden md:block"
         }
         fontSize={30}
       />

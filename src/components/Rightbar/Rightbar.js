@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { InlineIcon } from "@iconify/react";
 import Link from "next/link";
 import { PlaylistSmallCard } from "./PlaylistSmallCard";
@@ -61,7 +60,7 @@ export const Rightbar = () => {
   ];
 
   return (
-    <section className="md:grid hidden w-[25vw] py-4 px-4 h-full">
+    <section className="lg:grid hidden w-[25vw] py-4 px-4 h-full">
       <div className="flex justify-between items-center my-2">
         <Link href={""} className="flex items-center gap-4 hover:opacity-75">
           <Image
@@ -110,17 +109,14 @@ export const Rightbar = () => {
           ))}
         </div>
       </div>
-      <motion.button
-        className="rounded-md py-2 my-2 bg-white"
+      <button
+        className="rounded-md py-2 my-2 bg-white hover:scale-105 active:scale-95 transition"
         variants={button}
-        initial="rest"
-        whileHover="hover"
-        whileTap="pressed"
       >
         <p className="text-center text-lg text-stone-950 font-bold">
           Create New Playlist
         </p>
-      </motion.button>
+      </button>
     </section>
   );
 };

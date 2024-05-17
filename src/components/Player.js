@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Slider } from "./Slider";
-import { PlaylistSmallCard } from "./Rightbar/PlaylistSmallCard";
 import { MediaItem } from "./MediaItem";
 import { LikeButton } from "./LikeButton";
 
@@ -34,6 +33,7 @@ export const Player = () => {
             <LikeButton
               active="basil:add-outline"
               inactive="basil:checked-box-solid"
+              className="hidden md:block"
             />
           </div>
         </div>
@@ -81,7 +81,7 @@ export const Player = () => {
           <Slider value={progress} onChange={(e) => setProgress(e)} />
         </div>
         <div className="hidden md:flex w-full justify-end pr-2">
-          <div className="flex items-center gap-x-4 w-1/2">
+          <div className="flex items-center justify-end gap-x-4 w-full xl:w-1/2">
             <Icon
               onClick={toggleMute}
               icon={VolumeIcon}
