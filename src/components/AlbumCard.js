@@ -2,15 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-export const AlbumCard = ({
-  image = "https://picsum.photos/200",
-  name,
-  to,
-  description,
-}) => {
+export const AlbumCard = ({ image, name, link, description }) => {
   return (
     <Link
-      href={to}
+      href={link}
       className="relative group flex flex-col items-center rounded-md overflow-hidden gap-x-4 hover:bg-zinc-100/10 transition p-4"
     >
       <div className="relative aspect-square p-4">

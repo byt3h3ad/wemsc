@@ -89,7 +89,7 @@ export const Player = () => {
               className="text-neutral-400 hover:text-white cursor-pointer hover:scale-110 transition"
             />
             <div className="w-20">
-            <Slider value={volume} onChange={(e) => setVolume(e)} />
+              <Slider value={volume} onChange={(e) => setVolume(e)} />
             </div>
             <Icon icon="iconamoon:microphone-light" fontSize={24} />
             <Icon icon="hugeicons:computer-phone-sync" fontSize={24} />
