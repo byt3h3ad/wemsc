@@ -1,14 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { NavLink } from "./NavLink";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (show) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [show]);
+
+  const handleSize = () => {
+    window.innerWidth < 900 ? setShow(false) : setShow(true);
+  };
+
+  useEffect(() => {
+    handleSize();
+    window.onresize = handleSize;
+  }, []);
+
   const path = usePathname();
   const featuresLinks = useMemo(
     () => [
@@ -58,22 +76,42 @@ export const Sidebar = () => {
     [path],
   );
   return (
-    <section className="lg:flex flex-col justify-between hidden w-[20vw] py-4 px-4 h-screen overflow-hidden">
+    <section
+      className={`hidden min-[400px]:flex flex-col justify-between ${open ? "min-w-[15vw] sm:min-w-[20vw] min-[2000px]:min-w-[12vw]" : "min-w-fit"} py-4 px-2 sm:px-4 mx-2 h-screen overflow-hidden`}
+    >
       <div>
-        <div className="flex justify-between mb-6">
+        <div
+          className={`flex flex-${open ? "row" : "col space-y-2"} justify-between mb-6`}
+        >
           <Icon icon="ph:android-logo-fill" width="2rem" height="2rem" />
-          <Icon icon="mdi:hamburger-open" width="2rem" height="2rem" />
+          {open ? (
+            <Icon
+              icon="mdi:hamburger-open"
+              className="text-3xl hidden md:block"
+              onClick={() => setOpen(false)}
+            />
+          ) : (
+            <Icon
+              icon="mdi:hamburger-close"
+              className="text-3xl hidden md:block"
+              onClick={() => setOpen(true)}
+            />
+          )}
         </div>
         <div>
-          <p className="uppercase text-xs font-thin">features</p>
+          {open && (
+            <p className="uppercase text-xs 2xl:text-lg font-thin">features</p>
+          )}
           {featuresLinks.map((link, index) => (
-            <NavLink key={index} {...link} />
+            <NavLink key={index} {...link} isOpen={open} />
           ))}
         </div>
         <div>
-          <p className="uppercase text-xs font-thin">library</p>
+          {open && (
+            <p className="uppercase text-xs 2xl:text-lg font-thin">library</p>
+          )}
           {libraryLinks.map((link, index) => (
-            <NavLink key={index} {...link} />
+            <NavLink key={index} {...link} isOpen={open} />
           ))}
         </div>
       </div>

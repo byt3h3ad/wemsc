@@ -17,14 +17,12 @@ export const PlaylistSmallCard = ({
         width={40}
         height={40}
       />
-      <div className="flex justify-between items-center w-full hover:opacity-75 transition">
-        <div>
-          <p className="font-bold text-sm hover:underline underline-offset-2">
-            {name}
-          </p>
-          <p className="text-xs hover:underline underline-offset-2">{artist}</p>
+      <div className="flex justify-between items-center w-full hover:opacity-75 transition space-x-2">
+        <div className="text-xs xl:text-sm 2xl:text-base">
+          <p className="font-bold hover:underline underline-offset-2">{name}</p>
+          <p className="hover:underline underline-offset-2">{artist}</p>
         </div>
-        <p className="text-xs font-light ">{duration} </p>
+        <p className="text-xs font-light text-right">{duration}</p>
       </div>
     </Link>
   );

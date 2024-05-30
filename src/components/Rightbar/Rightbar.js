@@ -5,12 +5,6 @@ import Link from "next/link";
 import { PlaylistSmallCard } from "./PlaylistSmallCard";
 
 export const Rightbar = () => {
-  const button = {
-    rest: { scale: 1 },
-    hover: { scale: 1.03 },
-    pressed: { scale: 0.99 },
-  };
-
   const songs = [
     {
       name: "Sunset Boulevard",
@@ -40,13 +34,13 @@ export const Rightbar = () => {
       link: "https://open.spotify.com/playlist/1A2B3C4D5E6F7G8H9I0J",
     },
     {
-      name: "Morning Motivation",
+      name: "Morning Boost",
       artist: "20 songs",
       duration: "1 hr 30 min",
       link: "https://open.spotify.com/playlist/2B3C4D5E6F7G8H9I0J1A",
     },
     {
-      name: "Evening Relaxation",
+      name: "Evening Chill",
       artist: "18 songs",
       duration: "1 hr 25 min",
       link: "https://open.spotify.com/playlist/3C4D5E6F7G8H9I0J1A2B",
@@ -60,7 +54,7 @@ export const Rightbar = () => {
   ];
 
   return (
-    <section className="lg:grid hidden w-[25vw] py-4 px-4 h-full">
+    <section className="lg:grid hidden min-w-[20vw] py-4 px-4 h-full">
       <div className="flex justify-between items-center my-2">
         <Link href={""} className="flex items-center gap-4 hover:opacity-75">
           <Image
@@ -70,19 +64,21 @@ export const Rightbar = () => {
             width={40}
             height={40}
           />
-          <span className="font-bold">Timothy Luca</span>
+          <span className="font-bold text-sm xl:text-base">Timothy Luca</span>
         </Link>
-        <div className="flex items-center justify-evenly font-bold text-xl">
+        <div className="flex items-center justify-evenly font-bold text-base xl:text-xl">
           <InlineIcon icon="lets-icons:bell-pin" />
           <InlineIcon icon="iconamoon:arrow-down-2" />
         </div>
       </div>
       <div>
         <div className="flex items-center justify-between">
-          <p className="capitalize text-lg font-bold">Recently Played</p>
+          <p className="capitalize text-sm xl:text-base 2xl:text-lg font-bold">
+            Recently Played
+          </p>
           <Link
             href={"/"}
-            className="text-sm hover:underline underline-offset-2"
+            className="text-xs xl:text-sm 2xl:text-base hover:underline underline-offset-2"
           >
             See all
           </Link>
@@ -95,10 +91,12 @@ export const Rightbar = () => {
       </div>
       <div>
         <div className="flex items-center justify-between">
-          <p className="capitalize text-lg font-bold">My Playlist</p>
+          <p className="capitalize text-sm xl:text-base 2xl:text-lg font-bold">
+            My Playlist
+          </p>
           <Link
             href={"/"}
-            className="text-sm hover:underline underline-offset-2"
+            className="text-xs xl:text-sm 2xl:text-base hover:underline underline-offset-2"
           >
             See all
           </Link>
@@ -109,11 +107,8 @@ export const Rightbar = () => {
           ))}
         </div>
       </div>
-      <button
-        className="rounded-md py-2 my-2 bg-white hover:scale-105 active:scale-95 transition"
-        variants={button}
-      >
-        <p className="text-center text-lg text-stone-950 font-bold">
+      <button className="rounded-md py-2 my-2 bg-white hover:scale-105 active:scale-95 transition">
+        <p className="text-center text-sm xl:text-base 2xl:text-lg text-stone-950 font-bold">
           Create New Playlist
         </p>
       </button>

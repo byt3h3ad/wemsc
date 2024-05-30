@@ -1,7 +1,7 @@
-import { InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-export const NavLink = ({ name, to, active = false, icon }) => {
+export const NavLink = ({ name, to, active = false, icon, isOpen }) => {
   const activeClasses = active ? "text-blue-500" : "text-stone-100";
   return (
     <Link
@@ -11,8 +11,15 @@ export const NavLink = ({ name, to, active = false, icon }) => {
         activeClasses
       }
     >
-      <InlineIcon icon={icon} width="1.5rem" height="1.5rem" />
-      <span className={"text-sm"}>{name}</span>
+      <Icon
+        icon={icon}
+        className={isOpen ? "text-2xl lg:text-3xl 2xl:text-4xl" : "text-4xl"}
+      />
+      {isOpen && (
+        <span className="text-xs lg:text-sm xl:text-lg 2xl:text-xl">
+          {name}
+        </span>
+      )}
     </Link>
   );
 };
